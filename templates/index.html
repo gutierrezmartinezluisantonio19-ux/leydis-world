@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>LEYDI'S WORLD 🎀</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -13,9 +14,22 @@
             scroll-behavior: smooth;
         }
 
+        body {
+            margin: 0;
+        }
+
+        #contenido {
+            display: none;
+        }
+
+        #intro {
+            display: flex;
+        }
+
         .seccion-especial {
             padding: 75px 20px;
             text-align: center;
+            scroll-margin-top: 80px;
         }
 
         .kitty-galeria {
@@ -81,11 +95,47 @@
             margin-top: 25px;
             text-decoration: none;
         }
+
+        .acceso-privado {
+            padding: 65px 20px;
+            text-align: center;
+            background: #fff0f6;
+        }
+
+        .acceso-privado a {
+            display: inline-block;
+            padding: 14px 28px;
+            margin-top: 15px;
+            background: #ec75a5;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 800;
+        }
+
+        .acceso-privado a:hover {
+            background: #d94d8b;
+        }
+
+        @media (max-width: 600px) {
+            .seccion-especial {
+                padding: 50px 15px;
+            }
+
+            .kitty-galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .frases-bonitas {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
 <body>
 
+<!-- PORTADA -->
 <div id="intro">
     <div class="intro-content">
         <div class="intro-bow">🎀</div>
@@ -94,152 +144,230 @@
 
         <p>Un universo rosita creado especialmente para ti, mi niña 💗</p>
 
-        <button onclick="entrar()">Entrar a mi mundo ❤️</button>
+        <button type="button"
+            onclick="
+                document.getElementById('intro').style.display='none';
+                document.getElementById('contenido').style.display='block';
+                document.body.style.overflow='auto';
+                window.scrollTo(0,0);
+            ">
+            Entrar a mi mundo ❤️
+        </button>
     </div>
 </div>
 
+<!-- CONTENIDO PRINCIPAL -->
 <div id="contenido">
 
-<header>
-    <a href="#inicio" class="logo">🎀 LEYDI'S WORLD</a>
+    <header>
+        <a href="#inicio" class="logo">🎀 LEYDI'S WORLD</a>
 
-    <nav>
-        <a href="#inicio">Inicio ♡</a>
-        <a href="#historia">Mi mundo</a>
-        <a href="#un-mundo">Hello Kitty 🎀</a>
-        <a href="#palabras-bonitas">Palabras bonitas 💌</a>
-        <a href="#privado">Mi espacio 🔐</a>
-    </nav>
-</header>
+        <nav>
+            <a href="#inicio">Inicio ♡</a>
+            <a href="#historia">Mi mundo</a>
+            <a href="#un-mundo">Hello Kitty 🎀</a>
+            <a href="#palabras-bonitas">Palabras bonitas 💌</a>
+            <a href="#privado">Mi espacio 🔐</a>
+        </nav>
+    </header>
 
-<section class="hero" id="inicio">
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
 
-    <div class="decoracion">🎀</div>
-    <div class="corazon">♡</div>
+        <div class="decoracion">🎀</div>
+        <div class="corazon">♡</div>
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <span class="etiqueta">♡ BIENVENIDA A TU PEQUEÑO UNIVERSO ♡</span>
+            <span class="etiqueta">
+                ♡ BIENVENIDA A TU PEQUEÑO UNIVERSO ♡
+            </span>
 
-        <h1>
-            Bienvenida a<br>
-            <span>tu mundo, princesa</span>
-        </h1>
+            <h1>
+                Bienvenida a<br>
+                <span>tu mundo, princesa</span>
+            </h1>
 
-        <p class="bienvenida">
-            Este mundo fue creado para ti, mi princesa ❤️
+            <p class="bienvenida">
+                Este mundo fue creado para ti, mi princesa ❤️
+            </p>
+
+            <a href="#historia" class="boton">
+                Descubrir mi mundo ♡
+            </a>
+
+        </div>
+
+        <div class="kitty">🐱🎀</div>
+
+        <div class="flotante uno">💗</div>
+        <div class="flotante dos">✨</div>
+        <div class="flotante tres">🌸</div>
+
+    </section>
+
+    <!-- HISTORIA -->
+    <section class="historia" id="historia">
+
+        <span class="subtitulo">
+            🎀 UN LUGAR HECHO CON AMOR 🎀
+        </span>
+
+        <h2>
+            Porque tú eres especial <span>💕</span>
+        </h2>
+
+        <p>
+            Hay personas que llegan a nuestras vidas y hacen que todo
+            sea un poquito más bonito. Este pequeño universo está
+            dedicado a ti, para recordarte lo especial que eres
+            y lo mucho que significas.
         </p>
 
-        <a href="#historia" class="boton">Descubrir mi mundo ♡</a>
+        <div class="tarjetas">
 
-    </div>
+            <a href="#un-mundo" class="tarjeta tarjeta-enlace">
+                <span>🎀</span>
+                <h3>Un mundo para ti</h3>
+                <p>
+                    Un rinconcito lleno de Hello Kitty,
+                    creado pensando en mi princesa.
+                </p>
+            </a>
 
-    <div class="kitty">🐱🎀</div>
+            <a href="#palabras-bonitas" class="tarjeta tarjeta-enlace">
+                <span>💌</span>
+                <h3>Palabras bonitas</h3>
+                <p>
+                    Un montón de mensajitos para recordarte
+                    cuánto te quiero.
+                </p>
+            </a>
 
-    <div class="flotante uno">💗</div>
-    <div class="flotante dos">✨</div>
-    <div class="flotante tres">🌸</div>
+        </div>
+    </section>
 
-</section>
+    <!-- HELLO KITTY -->
+    <section class="seccion-especial" id="un-mundo">
 
-<section class="historia" id="historia">
+        <span class="subtitulo">🎀 UN UNIVERSO ROSITA 🎀</span>
 
-    <span class="subtitulo">🎀 UN LUGAR HECHO CON AMOR 🎀</span>
+        <h2>Un mundo para <span>ti</span> 💗</h2>
 
-    <h2>Porque tú eres especial <span>💕</span></h2>
+        <p>
+            Porque sé cuánto te gusta Hello Kitty,
+            quise llenar este rinconcito de ella para ti.
+        </p>
 
-    <p>
-        Hay personas que llegan a nuestras vidas y hacen que todo
-        sea un poquito más bonito. Este pequeño universo está
-        dedicado a ti, para recordarte lo especial que eres
-        y lo mucho que significas.
-    </p>
+        <div class="kitty-galeria">
 
-    <div class="tarjetas">
+            <div class="kitty-imagen">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty.svg"
+                    alt="Hello Kitty">
+            </div>
 
-        <a href="#un-mundo" class="tarjeta tarjeta-enlace">
-            <span>🎀</span>
-            <h3>Un mundo para ti</h3>
-            <p>Un rinconcito lleno de Hello Kitty, creado pensando en mi princesa.</p>
+            <div class="kitty-imagen">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty_character_portrait.png"
+                    alt="Hello Kitty">
+            </div>
+
+            <div class="kitty-imagen">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty_logo.svg"
+                    alt="Hello Kitty">
+            </div>
+
+        </div>
+
+        <p>Un poquito de ternura para la niña más especial. 🎀</p>
+
+        <a href="#historia" class="boton volver-inicio">
+            Volver 💗
         </a>
 
-        <a href="#palabras-bonitas" class="tarjeta tarjeta-enlace">
-            <span>💌</span>
-            <h3>Palabras bonitas</h3>
-            <p>Un montón de mensajitos para recordarte cuánto te quiero.</p>
+    </section>
+
+    <!-- PALABRAS BONITAS -->
+    <section class="seccion-especial" id="palabras-bonitas">
+
+        <span class="subtitulo">
+            💌 MENSAJITOS PARA MI PRINCESA 💌
+        </span>
+
+        <h2>Palabras <span>bonitas</span> ❤️</h2>
+
+        <p>
+            Para que nunca olvides lo mucho que vales
+            y lo especial que eres para mí.
+        </p>
+
+        <div class="frases-bonitas">
+
+            <div class="frase">Eres mi casualidad más bonita. ❤️</div>
+
+            <div class="frase">Aunque nos separen kilómetros, mi corazón siempre está contigo. 💗</div>
+
+            <div class="frase">No necesito tenerte cerca para sentirte en mi corazón. 🥺</div>
+
+            <div class="frase">Eres esa personita que puede alegrarme incluso en los días difíciles. 🌸</div>
+
+            <div class="frase">Si pudiera elegir otra vez, volvería a elegirte a ti. 💞</div>
+
+            <div class="frase">Ojalá pudiera abrazarte cada vez que te extraño. 🫂</div>
+
+            <div class="frase">No eres perfecta, pero eres perfecta para mi corazón. ❤️</div>
+
+            <div class="frase">Me encanta saber que existes y que formas parte de mi vida. 🎀</div>
+
+            <div class="frase">La distancia podrá separar nuestras manos, pero no lo que sentimos. 💌</div>
+
+            <div class="frase">Quiero ser una razón más para que sonrías cada día. 😊</div>
+
+            <div class="frase">Eres mi niña bonita, mi princesa y mi lugar favorito. 💖</div>
+
+            <div class="frase">Cada día encuentro una razón nueva para quererte más. 🌷</div>
+
+            <div class="frase">Nunca dudes de lo maravillosa que eres. 🎀</div>
+
+            <div class="frase">Si estuviera contigo ahora mismo, te daría el abrazo más grande. ❤️</div>
+
+            <div class="frase">Mi lugar favorito siempre será donde estés tú. 💗</div>
+
+            <div class="frase">Gracias por existir y hacer más bonito mi mundo. 🥰</div>
+
+        </div>
+
+        <a href="#historia" class="boton volver-inicio">
+            Volver 💗
         </a>
 
-    </div>
+    </section>
 
-</section>
+    <!-- ESPACIO PRIVADO -->
+    <section class="acceso-privado" id="privado">
 
-<section class="seccion-especial" id="un-mundo">
+        <span class="subtitulo">🔐 UN LUGAR ESPECIAL 🔐</span>
 
-    <span class="subtitulo">🎀 UN UNIVERSO ROSITA 🎀</span>
+        <h2>Mi espacio privado ❤️</h2>
 
-    <h2>Un mundo para <span>ti</span> 💗</h2>
+        <p>
+            Aquí hay un rinconcito especial que espera por ti.
+        </p>
 
-    <p>
-        Porque sé cuánto te gusta Hello Kitty,
-        quise llenar este rinconcito de ella para ti.
-    </p>
+        <a href="{{ url_for('acceso') }}">
+            Entrar a nuestro espacio 💗
+        </a>
 
-    <div class="kitty-galeria">
+    </section>
 
-        <div class="kitty-imagen">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty.svg"
-                 alt="Hello Kitty">
-        </div>
+    <footer>
+        <p>Hecho con mucho amor para ti, mi princesa. 🎀❤️</p>
+        <p>LEYDI'S WORLD</p>
+    </footer>
 
-        <div class="kitty-imagen">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty_character_portrait.png"
-                 alt="Hello Kitty">
-        </div>
+</div>
 
-        <div class="kitty-imagen">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty_logo.svg"
-                 alt="Hello Kitty">
-        </div>
-
-    </div>
-
-    <p>Un poquito de ternura para la niña más especial. 🎀</p>
-
-    <a href="#historia" class="boton volver-inicio">Volver 💗</a>
-
-</section>
-
-<section class="seccion-especial" id="palabras-bonitas">
-
-    <span class="subtitulo">💌 MENSAJITOS PARA MI PRINCESA 💌</span>
-
-    <h2>Palabras <span>bonitas</span> ❤️</h2>
-
-    <p>
-        Para que nunca olvides lo mucho que vales
-        y lo especial que eres para mí.
-    </p>
-
-    <div class="frases-bonitas">
-
-        <div class="frase">Eres mi casualidad más bonita. ❤️</div>
-
-        <div class="frase">Aunque nos separen kilómetros, mi corazón siempre está contigo. 💗</div>
-
-        <div class="frase">No necesito tenerte cerca para sentirte en mi corazón. 🥺</div>
-
-        <div class="frase">Eres esa personita que puede alegrarme incluso en los días difíciles. 🌸</div>
-
-        <div class="frase">Si pudiera elegir otra vez, volvería a elegirte a ti. 💞</div>
-
-        <div class="frase">Ojalá pudiera abrazarte cada vez que te extraño. 🫂</div>
-
-        <div class="frase">No eres perfecta, pero eres perfecta para mi corazón. ❤️</div>
-
-        <div class="frase">Me encanta saber que existes y que formas parte de mi vida. 🎀</div>
-
-        <div class="frase">La distancia podrá separar nuestras manos, pero no lo que sentimos. 💌</div>
-
-        <div class="frase">Quiero ser una razón más para que sonrías cada día. 😊</div>
-
-        <div class="frase">Eres mi niña bonita, mi princesa y mi lugar favorito. 💗</
+</body>
+</html>
