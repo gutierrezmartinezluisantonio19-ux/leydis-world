@@ -6,8 +6,82 @@
     <title>LEYDI'S WORLD 🎀</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .seccion-especial {
+            padding: 75px 20px;
+            text-align: center;
+        }
+
+        .kitty-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 25px;
+            max-width: 950px;
+            margin: 35px auto;
+        }
+
+        .kitty-imagen {
+            background: #fff0f6;
+            border: 3px solid #ffc1d9;
+            border-radius: 25px;
+            padding: 12px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, .12);
+        }
+
+        .kitty-imagen img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            border-radius: 18px;
+        }
+
+        .frases-bonitas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+            max-width: 1000px;
+            margin: 35px auto;
+        }
+
+        .frase {
+            background: #fff0f6;
+            border: 2px solid #ffc1d9;
+            border-radius: 20px;
+            padding: 25px 18px;
+            color: #a64d79;
+            font-size: 17px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, .10);
+        }
+
+        .tarjeta-enlace {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: transform .3s ease;
+        }
+
+        .tarjeta-enlace:hover {
+            transform: translateY(-7px);
+        }
+
+        .seccion-especial h2 span {
+            color: #ec75a5;
+        }
+
+        .volver-inicio {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,7 +106,8 @@
     <nav>
         <a href="#inicio">Inicio ♡</a>
         <a href="#historia">Mi mundo</a>
-        <a href="#galeria">Recuerdos</a>
+        <a href="#un-mundo">Hello Kitty 🎀</a>
+        <a href="#palabras-bonitas">Palabras bonitas 💌</a>
         <a href="#privado">Mi espacio 🔐</a>
     </nav>
 </header>
@@ -82,107 +157,89 @@
 
     <div class="tarjetas">
 
-        <div class="tarjeta">
-            <span>🐱</span>
-            <h3>Un mundo para ti</h3>
-            <p>Un rincón rosita creado pensando en mi princesa.</p>
-        </div>
-
-        <div class="tarjeta">
-            <span>💌</span>
-            <h3>Palabras bonitas</h3>
-            <p>Mensajes que guardan cariño y sentimientos.</p>
-        </div>
-
-        <div class="tarjeta">
+        <a href="#un-mundo" class="tarjeta tarjeta-enlace">
             <span>🎀</span>
-            <h3>Momentos especiales</h3>
-            <p>Recuerdos que siempre merecerán conservarse.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="galeria" id="galeria">
-
-    <span class="subtitulo">♡ NUESTROS MOMENTOS ♡</span>
-
-    <h2>Un poquito de <span>nosotros</span> 💗</h2>
-
-    <p>Porque los recuerdos bonitos merecen un lugar especial.</p>
-
-    <div class="galeria-vacia">
-
-        <div class="foto-placeholder">🎀</div>
-        <div class="foto-placeholder">🐱</div>
-        <div class="foto-placeholder">💗</div>
-
-    </div>
-
-    <p class="nota">
-        Aquí guardaremos fotografías y recuerdos especiales.
-    </p>
-
-</section>
-
-<section class="privado" id="privado">
-
-    <div class="privado-caja">
-
-        <div class="candado">🔐</div>
-
-        <span class="subtitulo">🎀 SOLAMENTE PARA TI 🎀</span>
-
-        <h2>Tu espacio <span>secreto</span></h2>
-
-        <p>
-            Mi niña, también tienes un rinconcito privado
-            dentro de este universo. Aquí podrás encontrar
-            fotografías, mensajes y recuerdos especiales.
-        </p>
-
-        <a href="{{ url_for('acceso') }}" class="boton">
-            Entrar a mi espacio ❤️
+            <h3>Un mundo para ti</h3>
+            <p>Un rinconcito lleno de Hello Kitty, creado pensando en mi princesa.</p>
         </a>
 
-        <p style="margin-top: 25px; font-size: 25px;">
-            🐱 🎀 💗 🎀 🐱
-        </p>
+        <a href="#palabras-bonitas" class="tarjeta tarjeta-enlace">
+            <span>💌</span>
+            <h3>Palabras bonitas</h3>
+            <p>Un montón de mensajitos para recordarte cuánto te quiero.</p>
+        </a>
 
     </div>
 
 </section>
 
-<footer>
+<section class="seccion-especial" id="un-mundo">
 
-    <div style="font-size: 30px;">🎀 🐱 💗 🐱 🎀</div>
+    <span class="subtitulo">🎀 UN UNIVERSO ROSITA 🎀</span>
 
-    <h2>LEYDI'S WORLD</h2>
+    <h2>Un mundo para <span>ti</span> 💗</h2>
 
-    <p>Un pequeño universo creado con mucho amor para ti.</p>
+    <p>
+        Porque sé cuánto te gusta Hello Kitty,
+        quise llenar este rinconcito de ella para ti.
+    </p>
 
-    <span>Hecho para mi princesa ❤️</span>
+    <div class="kitty-galeria">
 
-</footer>
+        <div class="kitty-imagen">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty.svg"
+                 alt="Hello Kitty">
+        </div>
 
-</div>
+        <div class="kitty-imagen">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty_character_portrait.png"
+                 alt="Hello Kitty">
+        </div>
 
-<script>
-    document.body.style.overflow = "hidden";
+        <div class="kitty-imagen">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hello_Kitty_logo.svg"
+                 alt="Hello Kitty">
+        </div>
 
-    function entrar() {
-        const intro = document.getElementById("intro");
+    </div>
 
-        intro.classList.add("oculto");
+    <p>Un poquito de ternura para la niña más especial. 🎀</p>
 
-        document.body.style.overflow = "auto";
+    <a href="#historia" class="boton volver-inicio">Volver 💗</a>
 
-        setTimeout(function() {
-            intro.style.display = "none";
-        }, 1000);
-    }
-</script>
+</section>
 
-</body>
-</html>
+<section class="seccion-especial" id="palabras-bonitas">
+
+    <span class="subtitulo">💌 MENSAJITOS PARA MI PRINCESA 💌</span>
+
+    <h2>Palabras <span>bonitas</span> ❤️</h2>
+
+    <p>
+        Para que nunca olvides lo mucho que vales
+        y lo especial que eres para mí.
+    </p>
+
+    <div class="frases-bonitas">
+
+        <div class="frase">Eres mi casualidad más bonita. ❤️</div>
+
+        <div class="frase">Aunque nos separen kilómetros, mi corazón siempre está contigo. 💗</div>
+
+        <div class="frase">No necesito tenerte cerca para sentirte en mi corazón. 🥺</div>
+
+        <div class="frase">Eres esa personita que puede alegrarme incluso en los días difíciles. 🌸</div>
+
+        <div class="frase">Si pudiera elegir otra vez, volvería a elegirte a ti. 💞</div>
+
+        <div class="frase">Ojalá pudiera abrazarte cada vez que te extraño. 🫂</div>
+
+        <div class="frase">No eres perfecta, pero eres perfecta para mi corazón. ❤️</div>
+
+        <div class="frase">Me encanta saber que existes y que formas parte de mi vida. 🎀</div>
+
+        <div class="frase">La distancia podrá separar nuestras manos, pero no lo que sentimos. 💌</div>
+
+        <div class="frase">Quiero ser una razón más para que sonrías cada día. 😊</div>
+
+        <div class="frase">Eres mi niña bonita, mi princesa y mi lugar favorito. 💗</
