@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEYDI'S WORLD 🎀</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="intro">
+    <div class="intro-content">
+        <div class="intro-bow">🎀</div>
+
+        <h1>LEYDI'S WORLD</h1>
+
+        <p>Un universo rosita creado especialmente para ti, mi niña 💗</p>
+
+        <button onclick="entrar()">Entrar a mi mundo ❤️</button>
+    </div>
+</div>
+
+<div id="contenido">
+
+<header>
+    <a href="#inicio" class="logo">🎀 LEYDI'S WORLD</a>
+
+    <nav>
+        <a href="#inicio">Inicio ♡</a>
+        <a href="#historia">Mi mundo</a>
+        <a href="#galeria">Recuerdos</a>
+        <a href="#privado">Mi espacio 🔐</a>
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+
+    <div class="decoracion">🎀</div>
+    <div class="corazon">♡</div>
+
+    <div class="hero-content">
+
+        <span class="etiqueta">♡ BIENVENIDA A TU PEQUEÑO UNIVERSO ♡</span>
+
+        <h1>
+            Bienvenida a<br>
+            <span>tu mundo, princesa</span>
+        </h1>
+
+        <p class="bienvenida">
+            Este mundo fue creado para ti, mi princesa ❤️
+        </p>
+
+        <a href="#historia" class="boton">Descubrir mi mundo ♡</a>
+
+    </div>
+
+    <div class="kitty">🐱🎀</div>
+
+    <div class="flotante uno">💗</div>
+    <div class="flotante dos">✨</div>
+    <div class="flotante tres">🌸</div>
+
+</section>
+
+<section class="historia" id="historia">
+
+    <span class="subtitulo">🎀 UN LUGAR HECHO CON AMOR 🎀</span>
+
+    <h2>Porque tú eres especial <span>💕</span></h2>
+
+    <p>
+        Hay personas que llegan a nuestras vidas y hacen que todo
+        sea un poquito más bonito. Este pequeño universo está
+        dedicado a ti, para recordarte lo especial que eres
+        y lo mucho que significas.
+    </p>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <span>🐱</span>
+            <h3>Un mundo para ti</h3>
+            <p>Un rincón rosita creado pensando en mi princesa.</p>
+        </div>
+
+        <div class="tarjeta">
+            <span>💌</span>
+            <h3>Palabras bonitas</h3>
+            <p>Mensajes que guardan cariño y sentimientos.</p>
+        </div>
+
+        <div class="tarjeta">
+            <span>🎀</span>
+            <h3>Momentos especiales</h3>
+            <p>Recuerdos que siempre merecerán conservarse.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="galeria" id="galeria">
+
+    <span class="subtitulo">♡ NUESTROS MOMENTOS ♡</span>
+
+    <h2>Un poquito de <span>nosotros</span> 💗</h2>
+
+    <p>Porque los recuerdos bonitos merecen un lugar especial.</p>
+
+    <div class="galeria-vacia">
+
+        <div class="foto-placeholder">🎀</div>
+        <div class="foto-placeholder">🐱</div>
+        <div class="foto-placeholder">💗</div>
+
+    </div>
+
+    <p class="nota">
+        Aquí guardaremos fotografías y recuerdos especiales.
+    </p>
+
+</section>
+
+<section class="privado" id="privado">
+
+    <div class="privado-caja">
+
+        <div class="candado">🔐</div>
+
+        <span class="subtitulo">🎀 SOLAMENTE PARA TI 🎀</span>
+
+        <h2>Tu espacio <span>secreto</span></h2>
+
+        <p>
+            Mi niña, también tienes un rinconcito privado
+            dentro de este universo. Aquí podrás encontrar
+            fotografías, mensajes y recuerdos especiales.
+        </p>
+
+        <a href="{{ url_for('acceso') }}" class="boton">
+            Entrar a mi espacio ❤️
+        </a>
+
+        <p style="margin-top: 25px; font-size: 25px;">
+            🐱 🎀 💗 🎀 🐱
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div style="font-size: 30px;">🎀 🐱 💗 🐱 🎀</div>
+
+    <h2>LEYDI'S WORLD</h2>
+
+    <p>Un pequeño universo creado con mucho amor para ti.</p>
+
+    <span>Hecho para mi princesa ❤️</span>
+
+</footer>
+
+</div>
+
+<script>
+    document.body.style.overflow = "hidden";
+
+    function entrar() {
+        const intro = document.getElementById("intro");
+
+        intro.classList.add("oculto");
+
+        document.body.style.overflow = "auto";
+
+        setTimeout(function() {
+            intro.style.display = "none";
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso | LEYDI'S WORLD 🎀</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: 'Nunito', sans-serif;
+            background:
+                radial-gradient(circle at 10% 15%, white 0 5px, transparent 6px),
+                radial-gradient(circle at 85% 80%, white 0 6px, transparent 7px),
+                linear-gradient(135deg, #ffcce5, #e6d4ff, #ffe5f1);
+            overflow-x: hidden;
+        }
+
+        .decoracion {
+            position: fixed;
+            font-size: 85px;
+            opacity: .45;
+            animation: flotar 4s infinite ease-in-out;
+        }
+
+        .decoracion.uno {
+            top: 7%;
+            left: 8%;
+        }
+
+        .decoracion.dos {
+            bottom: 7%;
+            right: 8%;
+            animation-delay: 1s;
+        }
+
+        .caja {
+            width: 100%;
+            max-width: 410px;
+            padding: 40px 30px;
+            background: rgba(255,255,255,.96);
+            border: 3px solid #ffd2e8;
+            border-radius: 35px;
+            text-align: center;
+            box-shadow: 0 15px 40px #bd79a844;
+            position: relative;
+            z-index: 2;
+        }
+
+        .moño {
+            font-size: 75px;
+            animation: flotar 3s infinite ease-in-out;
+        }
+
+        h1 {
+            color: #df70ad;
+            font-size: 29px;
+            font-weight: 900;
+            margin: 12px 0;
+        }
+
+        p {
+            color: #a17d9c;
+            line-height: 1.6;
+        }
+
+        .separador {
+            color: #ed8fc0;
+            margin: 20px 0;
+            font-size: 19px;
+        }
+
+        .opciones {
+            display: flex;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .opciones button {
+            flex: 1;
+            padding: 14px 5px;
+            border: 2px solid #f3c6df;
+            border-radius: 18px;
+            background: #fff5fa;
+            color: #bd5893;
+            font-family: inherit;
+            font-weight: 900;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .opciones button:hover {
+            transform: translateY(-3px);
+        }
+
+        .opciones button.activo {
+            background: linear-gradient(135deg, #f58fc3, #c69aee);
+            color: white;
+            border-color: #e889bb;
+            box-shadow: 0 5px 15px #e9b5d4;
+        }
+
+        .password-box {
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            padding-right: 60px;
+            border: 2px solid #f3c6df;
+            border-radius: 15px;
+            font-family: inherit;
+            font-size: 15px;
+            margin-top: 10px;
+            outline: none;
+            background: #fff9fc;
+            color: #80506f;
+        }
+
+        input:focus {
+            border-color: #ed81c3;
+            box-shadow: 0 0 10px #f6c7e2;
+        }
+
+        .mostrar {
+            position: absolute;
+            right: 9px;
+            top: 18px;
+            border: none;
+            background: #ffe3f0;
+            padding: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .entrar {
+            width: 100%;
+            padding: 15px;
+            margin-top: 22px;
+            border: 2px solid white;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #f18cbd, #b98be9);
+            color: white;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 6px 18px #e9b5d4;
+            transition: .3s;
+        }
+
+        .entrar:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px #dc91c1;
+        }
+
+        .error {
+            color: #d63384;
+            background: #fff0f6;
+            border: 1px solid #ffc4df;
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 18px;
+            font-weight: 700;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 25px;
+            color: #c45b98;
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .volver:hover {
+            color: #ed69aa;
+        }
+
+        .final {
+            margin-top: 20px;
+            font-size: 25px;
+        }
+
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-13px);
+            }
+        }
+
+        @media(max-width: 450px) {
+            .caja {
+                padding: 30px 20px;
+            }
+
+            .decoracion {
+                font-size: 55px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="decoracion uno">🎀</div>
+<div class="decoracion dos">💗</div>
+
+<div class="caja">
+
+    <div class="moño">🐱🎀</div>
+
+    <h1>LEYDI'S WORLD</h1>
+
+    <p>Bienvenida a este pequeño mundo lleno de amor.</p>
+
+    <div class="separador">♡ 🎀 ♡</div>
+
+    <p>¿Quién está entrando a este universo?</p>
+
+    <form action="{{ url_for('login') }}" method="POST">
+
+        <input type="hidden" name="rol" id="rol" value="leydi">
+
+        <div class="opciones">
+
+            <button type="button" id="leydi" class="activo"
+                onclick="elegir('leydi')">
+                💗 Leydi
+            </button>
+
+            <button type="button" id="admin"
+                onclick="elegir('admin')">
+                👑 Administrador
+            </button>
+
+        </div>
+
+        <div class="password-box">
+
+            <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Escribe tu contraseña"
+                required
+                autofocus
+            >
+
+            <button type="button" class="mostrar"
+                onclick="mostrarPassword()" id="ojo">
+                👁
+            </button>
+
+        </div>
+
+        <button type="submit" class="entrar">
+            Entrar a mi mundo ❤️
+        </button>
+
+    </form>
+
+    {% with mensajes = get_flashed_messages() %}
+        {% for mensaje in mensajes %}
+            <div class="error">{{ mensaje }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    <a href="{{ url_for('inicio') }}" class="volver">
+        ← Volver al inicio
+    </a>
+
+    <div class="final">🎀 🐱 💗 🐱 🎀</div>
+
+</div>
+
+<script>
+    function elegir(rol) {
+        document.getElementById("rol").value = rol;
+
+        document.getElementById("leydi").classList.toggle(
+            "activo", rol === "leydi"
+        );
+
+        document.getElementById("admin").classList.toggle(
+            "activo", rol === "admin"
+        );
+    }
+
+    function mostrarPassword() {
+        const campo = document.getElementById("password");
+        const ojo = document.getElementById("ojo");
+
+        if (campo.type === "password") {
+            campo.type = "text";
+            ojo.textContent = "🙈";
+        } else {
+            campo.type = "password";
+            ojo.textContent = "👁";
+        }
+    }
+</script>
+
+</body>
+</html>

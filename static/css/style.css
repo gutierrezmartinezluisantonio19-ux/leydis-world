@@ -1,0 +1,775 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+    --rosa: #ff8fc8;
+    --rosa-fuerte: #ed69aa;
+    --rosa-claro: #fff0f8;
+    --rosa-suave: #ffe0ef;
+    --lila: #d9c4ff;
+    --morado: #9665b5;
+    --texto: #80506f;
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--rosa-claro);
+    color: var(--texto);
+    overflow-x: hidden;
+}
+
+/* INTRO */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 5%, transparent 6%),
+        radial-gradient(circle at 80% 75%, #ffffff 0 4%, transparent 5%),
+        linear-gradient(135deg, #ffb5da, #e5caff, #ffdaeb);
+    transition: 1s;
+}
+
+#intro::before,
+#intro::after {
+    content: "🎀";
+    position: absolute;
+    font-size: 100px;
+    opacity: .35;
+}
+
+#intro::before {
+    top: 8%;
+    left: 8%;
+    transform: rotate(-20deg);
+}
+
+#intro::after {
+    bottom: 8%;
+    right: 8%;
+    transform: rotate(20deg);
+}
+
+#intro.oculto {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-content {
+    padding: 30px;
+    animation: aparecer 1.5s;
+    position: relative;
+    z-index: 2;
+}
+
+.intro-bow {
+    font-size: 90px;
+    animation: flotar 3s infinite ease-in-out;
+}
+
+.intro-content h1 {
+    font-size: clamp(35px, 7vw, 70px);
+    color: white;
+    text-shadow: 0 5px 15px #d46da9;
+    font-weight: 900;
+}
+
+.intro-content p {
+    color: white;
+    font-size: 17px;
+    margin: 15px 0 30px;
+}
+
+/* BOTONES */
+
+button, .boton {
+    border: 2px solid white;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff8fc8, #d69af4);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-family: inherit;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 6px 18px #e9a8d0;
+    transition: .3s;
+}
+
+button:hover, .boton:hover {
+    transform: translateY(-5px) scale(1.04);
+    box-shadow: 0 10px 25px #dc91c1;
+}
+
+/* HEADER */
+
+header {
+    width: 100%;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,.96);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px #f5cce4;
+    border-bottom: 3px solid #ffd4e9;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    color: #e66aa9;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #a35d91;
+    font-size: 14px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #ed69aa;
+    transform: translateY(-2px);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 10% 20%, white 0 5px, transparent 6px),
+        radial-gradient(circle at 90% 70%, white 0 6px, transparent 7px),
+        linear-gradient(135deg, #ffe0ef, #f0ddff, #ffcde6);
+}
+
+.hero::before {
+    content: "♡";
+    position: absolute;
+    font-size: 350px;
+    color: rgba(255,255,255,.25);
+    top: -100px;
+    left: -70px;
+}
+
+.hero::after {
+    content: "🎀";
+    position: absolute;
+    font-size: 180px;
+    opacity: .12;
+    bottom: -40px;
+    right: -20px;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 40px 20px;
+}
+
+.etiqueta, .subtitulo {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 900;
+    color: #d66da9;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 78px);
+    line-height: 1.2;
+    color: #a064b2;
+    margin: 25px 0;
+    font-weight: 900;
+}
+
+.hero h1 span, h2 span {
+    color: #ed78b5;
+}
+
+.bienvenida {
+    font-size: 19px;
+    margin-bottom: 35px;
+    color: #985e91;
+    font-weight: 700;
+}
+
+.decoracion {
+    position: absolute;
+    top: 65px;
+    left: 12%;
+    font-size: 100px;
+    transform: rotate(-15deg);
+    animation: flotar 4s infinite ease-in-out;
+}
+
+.corazon {
+    position: absolute;
+    right: 13%;
+    top: 90px;
+    font-size: 110px;
+    color: #ed91ca;
+}
+
+.kitty {
+    position: absolute;
+    bottom: 35px;
+    right: 10%;
+    font-size: 85px;
+    animation: flotar 4s infinite ease-in-out;
+}
+
+.flotante {
+    position: absolute;
+    font-size: 35px;
+    animation: flotar 4s infinite ease-in-out;
+}
+
+.uno { top: 35%; left: 10%; }
+.dos { bottom: 20%; left: 20%; animation-delay: 1s; }
+.tres { top: 30%; right: 25%; animation-delay: 2s; }
+
+/* HISTORIA */
+
+.historia, .galeria {
+    padding: 100px 8%;
+    text-align: center;
+    position: relative;
+}
+
+.historia {
+    background: #fffafd;
+}
+
+.historia h2, .galeria h2, .privado h2 {
+    font-size: clamp(30px, 5vw, 46px);
+    margin: 18px 0;
+    color: #a064b2;
+    font-weight: 900;
+}
+
+.historia > p, .galeria > p {
+    max-width: 680px;
+    margin: auto;
+    color: #a17d9c;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 55px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 30px;
+    border: 2px solid #ffe0ef;
+    box-shadow: 0 8px 25px #f5d9e9;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta::before {
+    content: "🎀";
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 24px;
+    opacity: .7;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px #edc1dd;
+}
+
+.tarjeta span {
+    font-size: 50px;
+}
+
+.tarjeta h3 {
+    margin: 15px 0;
+    color: #d56ba9;
+    font-weight: 900;
+}
+
+.tarjeta p {
+    color: #a17d9c;
+    font-size: 14px;
+}
+
+/* GALERÍA */
+
+.galeria {
+    background: linear-gradient(135deg, #fff0f8, #f1e6ff);
+}
+
+.galeria::before {
+    content: "🎀";
+    position: absolute;
+    top: 30px;
+    left: 7%;
+    font-size: 45px;
+    opacity: .5;
+}
+
+.galeria-vacia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 850px;
+    margin: 45px auto 25px;
+}
+
+.foto-placeholder {
+    min-height: 220px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ffcce5, #ddc8ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    border: 5px solid white;
+    box-shadow: 0 8px 22px #e4c6e5;
+    transition: .3s;
+}
+
+.foto-placeholder:hover {
+    transform: scale(1.04) rotate(2deg);
+}
+
+.nota {
+    font-size: 13px;
+    margin-top: 20px !important;
+}
+
+/* PRIVADO */
+
+.privado {
+    padding: 110px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #e9d9ff, #ffdced);
+    position: relative;
+    overflow: hidden;
+}
+
+.privado::before {
+    content: "♡";
+    position: absolute;
+    font-size: 250px;
+    left: 3%;
+    top: -60px;
+    color: rgba(255,255,255,.25);
+}
+
+.privado-caja {
+    max-width: 680px;
+    margin: auto;
+    padding: 60px 35px;
+    background: white;
+    border: 3px solid #ffe0ef;
+    border-radius: 40px;
+    box-shadow: 0 12px 35px #d7b9e9;
+    position: relative;
+    z-index: 2;
+}
+
+.candado {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.privado-caja p {
+    color: #a17d9c;
+    line-height: 1.9;
+    margin: 20px 0 30px;
+}
+
+/* FOOTER */
+
+footer {
+    background: linear-gradient(135deg, #c77eb9, #9665b5);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+footer h2 {
+    margin: 15px 0;
+    letter-spacing: 3px;
+    font-weight: 900;
+}
+
+footer p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* ELEMENTOS GENERALES PARA LOGIN, ADMIN Y PRIVADO */
+
+input, select, textarea {
+    font-family: inherit;
+}
+
+input, select, textarea {
+    border: 2px solid #f3c9e1;
+    border-radius: 15px;
+    padding: 13px;
+    background: #fff8fc;
+    color: #80506f;
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ed81c3;
+    box-shadow: 0 0 10px #f6c7e2;
+}
+
+form {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ANIMACIONES */
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* CELULARES */
+
+@media (max-width: 750px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px 10px;
+    }
+
+    nav {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .tarjetas, .galeria-vacia {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .decoracion {
+        font-size: 55px;
+        top: 30px;
+        left: 5%;
+    }
+
+    .corazon {
+        font-size: 55px;
+        right: 7%;
+        top: 40px;
+    }
+
+    .kitty {
+        font-size: 55px;
+        right: 5%;
+        bottom: 15px;
+    }
+
+    .flotante {
+        font-size: 25px;
+    }
+
+    .historia, .galeria {
+        padding: 75px 7%;
+    }
+
+    .privado {
+        padding: 75px 15px;
+    }
+
+    .privado-caja {
+        padding: 45px 20px;
+    }
+
+    .intro-bow {
+        font-size: 70px;
+    }
+}
+/* =====================================
+   HELLO KITTY ORIGINAL EN TODO EL SITIO
+===================================== */
+
+:root {
+    --kitty-imagen: url("https://corporate.sanrio.co.jp/en/business-info/images/img_hello-kitty.png");
+}
+
+/* HELLO KITTY FLOTANDO EN TODAS LAS PÁGINAS */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 145px;
+    height: 145px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .20;
+    pointer-events: none;
+    z-index: 5;
+    animation: kittyFlotante 5s ease-in-out infinite;
+}
+
+body::before {
+    top: 100px;
+    left: -30px;
+}
+
+body::after {
+    bottom: 15px;
+    right: -25px;
+    animation-delay: 2s;
+}
+
+@keyframes kittyFlotante {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(5deg);
+    }
+}
+
+/* PANTALLA DE BIENVENIDA */
+
+#intro::before,
+#intro::after {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .85;
+}
+
+.intro-bow {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0;
+}
+
+/* PANTALLA PRINCIPAL */
+
+.hero::after {
+    content: "";
+    width: 190px;
+    height: 190px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .9;
+}
+
+/* HELLO KITTY EN EL HERO */
+
+.kitty {
+    width: 160px;
+    height: 160px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0;
+}
+
+/* HISTORIA Y TARJETAS */
+
+.historia::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 15px;
+    right: 25px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .75;
+    pointer-events: none;
+}
+
+.tarjeta::before {
+    content: "";
+    width: 45px;
+    height: 45px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .8;
+}
+
+/* GALERÍA */
+
+.galeria::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* ESPACIO PRIVADO */
+
+.privado::after {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    right: 20px;
+    bottom: 15px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .7;
+    pointer-events: none;
+}
+
+.candado {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0;
+}
+
+/* ENCABEZADOS Y FORMULARIOS */
+
+.privado-caja,
+.admin-tarjeta,
+.mensaje-caja,
+.recuerdo,
+.foto-admin {
+    position: relative;
+}
+
+.privado-caja::after,
+.admin-tarjeta::after {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    right: 8px;
+    bottom: 8px;
+    background-image: var(--kitty-imagen);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .20;
+    pointer-events: none;
+}
+
+/* LOGIN */
+
+body:has(form[action*="login"]) {
+    background-image:
+        url("https://corporate.sanrio.co.jp/en/business-info/images/img_hello-kitty.png"),
+        linear-gradient(135deg, #ffe0ef, #e9d9ff);
+    background-repeat: no-repeat;
+    background-position: right 20px bottom 20px, center;
+    background-size: 170px, cover;
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    body::before,
+    body::after {
+        width: 85px;
+        height: 85px;
+        opacity: .16;
+    }
+
+    .kitty {
+        width: 100px;
+        height: 100px;
+    }
+
+    .intro-bow {
+        width: 150px;
+        height: 150px;
+    }
+
+    .historia::before {
+        width: 75px;
+        height: 75px;
+    }
+
+    .privado::after {
+        width: 100px;
+        height: 100px;
+    }
+
+    .candado {
+        width: 120px;
+        height: 120px;
+    }
+}

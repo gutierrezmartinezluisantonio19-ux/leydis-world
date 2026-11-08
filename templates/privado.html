@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>El mundo de Leydi 🎀</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe5f2, #f0e4ff);
+            min-height: 100vh;
+        }
+
+        .encabezado {
+            text-align: center;
+            padding: 55px 20px 30px;
+        }
+
+        .hello-kitty {
+            width: 210px;
+            max-width: 65%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            animation: flotar 3s infinite ease-in-out;
+            filter: drop-shadow(0 8px 10px #e7a6ca);
+        }
+
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .encabezado h1 {
+            color: #d96ca8;
+            font-size: clamp(30px, 6vw, 48px);
+            font-weight: 900;
+            margin: 15px 0;
+        }
+
+        .encabezado p {
+            color: #9c6e96;
+        }
+
+        .contenido-privado {
+            max-width: 1050px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .mensaje-caja {
+            background: white;
+            border: 3px solid #ffd3e8;
+            border-radius: 30px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 10px 30px #e9b9d5;
+            margin-bottom: 55px;
+        }
+
+        .mensaje-caja h2 {
+            color: #d96ca8;
+            margin-bottom: 20px;
+        }
+
+        .mensaje-caja p {
+            color: #936b8d;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        .titulo-galeria {
+            text-align: center;
+            color: #a064b2;
+            font-size: clamp(28px, 5vw, 40px);
+            margin-bottom: 35px;
+            font-weight: 900;
+        }
+
+        .galeria-recuerdos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .recuerdo {
+            background: white;
+            border: 3px solid #ffd6eb;
+            padding: 13px;
+            border-radius: 25px;
+            box-shadow: 0 8px 22px #eac3df;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .recuerdo:hover {
+            transform: translateY(-7px);
+        }
+
+        .recuerdo img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 18px;
+            display: block;
+        }
+
+        .recuerdo p {
+            color: #a0649a;
+            font-weight: 700;
+            padding: 15px 5px;
+            overflow-wrap: anywhere;
+        }
+
+        .sin-recuerdos {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 45px 20px;
+            background: white;
+            border-radius: 25px;
+            color: #a0649a;
+            border: 2px dashed #edafd1;
+        }
+
+        .salida {
+            text-align: center;
+            padding: 20px 20px 60px;
+        }
+
+        .kitty-final {
+            width: 115px;
+            max-width: 45%;
+            margin: 15px auto;
+            display: block;
+        }
+
+        @media(max-width: 600px) {
+            .mensaje-caja {
+                padding: 25px 18px;
+            }
+
+            .recuerdo img {
+                height: 240px;
+            }
+
+            .galeria-recuerdos {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="encabezado">
+
+    <img
+        class="hello-kitty"
+        src="https://corporate.sanrio.co.jp/en/business-info/images/img_hello-kitty.png"
+        alt="Hello Kitty"
+    >
+
+    <span class="subtitulo">♡ UN UNIVERSO SOLAMENTE PARA TI ♡</span>
+
+    <h1>Hola, mi princesa ❤️</h1>
+
+    <p>Qué bonito que estés aquí. Bienvenida a tu pequeño mundo.</p>
+
+</section>
+
+
+<main class="contenido-privado">
+
+    <!-- MENSAJE -->
+
+    <section class="mensaje-caja">
+
+        <div style="font-size:35px;">💌 🎀 💗</div>
+
+        <h2>Un mensaje para ti</h2>
+
+        <p>{{ mensaje }}</p>
+
+        <div style="font-size:30px; margin-top:20px;">💕</div>
+
+    </section>
+
+
+    <!-- GALERÍA -->
+
+    <h2 class="titulo-galeria">
+        Nuestros recuerdos 📸
+    </h2>
+
+    <div class="galeria-recuerdos">
+
+        {% for foto in fotos %}
+
+        <div class="recuerdo">
+
+            <img
+                src="{{ foto_url(foto.imagen) }}"
+                alt="{{ foto.descripcion or 'Recuerdo especial' }}"
+                loading="lazy"
+            >
+
+            <p>
+                {{ foto.descripcion or "Un recuerdo especial ❤️" }}
+            </p>
+
+            🎀
+
+        </div>
+
+        {% else %}
+
+        <div class="sin-recuerdos">
+
+            <h3>🎀 Nuestro álbum apenas comienza 🎀</h3>
+
+            <p>
+                Pronto tendremos aquí muchos recuerdos bonitos. 💗
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+
+<!-- DESPEDIDA -->
+
+<div class="salida">
+
+    <img
+        class="kitty-final"
+        src="https://corporate.sanrio.co.jp/en/business-info/images/img_hello-kitty.png"
+        alt="Hello Kitty"
+    >
+
+    <div style="font-size:35px; margin-bottom:20px;">
+        🎀 💗 🐱 💗 🎀
+    </div>
+
+    <a href="{{ url_for('salir') }}" class="boton">
+        Cerrar sesión ❤️
+    </a>
+
+    <p style="margin-top:25px; color:#a17d9c;">
+        Este pequeño mundo siempre tendrá un lugar para ti.
+    </p>
+
+</div>
+
+</body>
+</html>

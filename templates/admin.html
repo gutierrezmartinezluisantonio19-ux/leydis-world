@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración | LEYDI'S WORLD</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe5f1, #f5e6ff, #fff0f6);
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .admin-contenedor {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 18px;
+        }
+
+        .admin-encabezado {
+            text-align: center;
+            padding: 25px 15px 35px;
+        }
+
+        .kitty-principal {
+            width: 190px;
+            max-width: 65%;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px;
+            filter: drop-shadow(0 8px 12px #e9a6cb);
+            animation: flotar 3s ease-in-out infinite;
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .admin-encabezado h1 {
+            color: #d75b9e;
+            font-size: clamp(30px, 5vw, 45px);
+            font-weight: 900;
+        }
+
+        .admin-encabezado p {
+            color: #986b96;
+        }
+
+        .admin-tarjeta {
+            background: rgba(255,255,255,.95);
+            border: 3px solid #ffd0e7;
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(210,130,180,.16);
+        }
+
+        .admin-tarjeta h2 {
+            color: #d75b9e;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .decoracion {
+            text-align: center;
+            color: #d75b9e;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 9px 0;
+            border: 2px solid #f5c5df;
+            border-radius: 14px;
+            background: #fffafd;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #dc75ae;
+        }
+
+        button {
+            background: linear-gradient(135deg, #ed8cbd, #c78be7);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 13px 22px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: .2s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            transform: scale(1.04);
+            box-shadow: 0 5px 15px #e9b5d5;
+        }
+
+        .galeria-admin {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .foto-admin {
+            background: #fff7fc;
+            border: 2px solid #ffd0e7;
+            border-radius: 20px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .foto-admin img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .foto-admin p, .mensaje-admin p {
+            color: #986b96;
+            overflow-wrap: anywhere;
+        }
+
+        .mensaje-admin {
+            background: #fff7fc;
+            border: 2px solid #ffd0e7;
+            padding: 15px;
+            border-radius: 18px;
+            margin: 12px 0;
+        }
+
+        .flash {
+            background: white;
+            border: 2px solid #f4b9d9;
+            color: #c45a99;
+            text-align: center;
+            padding: 13px;
+            border-radius: 15px;
+            margin: 12px 0;
+        }
+
+        .kitty-final {
+            width: 130px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .cerrar {
+            text-align: center;
+            padding: 20px 0 45px;
+        }
+
+        .ayuda {
+            color: #986b96;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        @media(max-width: 600px) {
+            .admin-tarjeta {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="admin-contenedor">
+
+    <header class="admin-encabezado">
+
+        <img
+            class="kitty-principal"
+            src="https://i.shgcdn.com/1ec9c187-9579-42d4-be9e-f4161e8df9e1/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+            alt="Hello Kitty"
+        >
+
+        <h1>LEYDI'S WORLD</h1>
+        <h2 style="color:#bd77c8;">Panel de administración 👑</h2>
+
+        <p>Bienvenido al centro de control de este pequeño mundo. ❤️</p>
+        🎀 💗 🎀
+
+    </header>
+
+    {% with mensajes_flash = get_flashed_messages() %}
+        {% for mensaje in mensajes_flash %}
+            <div class="flash">{{ mensaje }}</div>
+        {% endfor %}
+    {% endwith %}
+
+
+    <!-- SUBIR FOTOGRAFÍAS -->
+
+    <section class="admin-tarjeta">
+
+        <div class="decoracion">🎀 Hello Kitty 🎀</div>
+        <h2>📸 Subir fotografías</h2>
+
+        <form action="{{ url_for('subir_foto') }}"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <input
+                type="file"
+                name="foto"
+                accept=".jpg,.jpeg,.png,.webp"
+                required
+            >
+
+            <input
+                type="text"
+                name="descripcion"
+                placeholder="Descripción de la fotografía"
+            >
+
+            <p class="ayuda">
+                Tus fotografías se guardarán en almacenamiento externo. ❤️
+            </p>
+
+            <button type="submit">Subir fotografía ❤️</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- GALERÍA -->
+
+    <section class="admin-tarjeta">
+
+        <h2>💕 Galería actual</h2>
+
+        <div class="galeria-admin">
+
+            {% for foto in fotos %}
+
+            <div class="foto-admin">
+
+                <img
+                    src="{{ foto_url(foto.imagen) }}"
+                    alt="{{ foto.descripcion or 'Recuerdo especial' }}"
+                    loading="lazy"
+                >
+
+                <p>{{ foto.descripcion or 'Un recuerdo especial ❤️' }}</p>
+
+                <form action="{{ url_for('eliminar_foto', id=foto.id) }}"
+                      method="POST"
+                      onsubmit="return confirm('¿Eliminar esta fotografía?')">
+
+                    <button type="submit">Eliminar fotografía</button>
+
+                </form>
+
+            </div>
+
+            {% else %}
+
+            <p style="text-align:center; color:#986b96;">
+                Aún no hay fotografías. 💗
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- AGREGAR MENSAJES -->
+
+    <section class="admin-tarjeta">
+
+        <div class="decoracion">💌 🐱 💌</div>
+
+        <h2>Agregar mensajes románticos</h2>
+
+        <form action="{{ url_for('agregar_mensaje') }}" method="POST">
+
+            <textarea
+                name="contenido"
+                placeholder="Escribe un mensaje especial..."
+                required
+                rows="5"
+            ></textarea>
+
+            <button type="submit">Guardar mensaje ❤️</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- MENSAJES GUARDADOS -->
+
+    <section class="admin-tarjeta">
+
+        <h2>💗 Mensajes guardados</h2>
+
+        {% for mensaje in mensajes %}
+
+        <div class="mensaje-admin">
+
+            <p>{{ mensaje.contenido }}</p>
+
+            <form action="{{ url_for('eliminar_mensaje', id=mensaje.id) }}"
+                  method="POST"
+                  onsubmit="return confirm('¿Eliminar este mensaje?')">
+
+                <button type="submit">Eliminar mensaje</button>
+
+            </form>
+
+        </div>
+
+        {% else %}
+
+        <p style="text-align:center; color:#986b96;">
+            Todavía no hay mensajes guardados. 💌
+        </p>
+
+        {% endfor %}
+
+    </section>
+
+
+    <!-- CAMBIAR CONTRASEÑA -->
+
+    <section class="admin-tarjeta">
+
+        <div class="decoracion">🔐 🎀 🔐</div>
+
+        <h2>Cambiar contraseña de Leydi</h2>
+
+        <form action="{{ url_for('cambiar_password') }}" method="POST">
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Nueva contraseña"
+                minlength="8"
+                required
+            >
+
+            <button type="submit">Actualizar contraseña</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer class="cerrar">
+
+        <img
+            class="kitty-final"
+            src="https://i.shgcdn.com/1ec9c187-9579-42d4-be9e-f4161e8df9e1/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
+            alt="Hello Kitty"
+        >
+
+        <a href="{{ url_for('salir') }}" class="boton">
+            Cerrar sesión ❤️
+        </a>
+
+        <p style="color:#a879a1; margin-top:20px;">
+            LEYDI'S WORLD — Un mundo hecho con amor. 💗
+        </p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
