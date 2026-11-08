@@ -22,7 +22,7 @@
             scroll-margin-top: 80px;
         }
 
-        /* HELLO KITTY DIBUJADA */
+        /* HELLO KITTY */
         .kitty-art {
             position: relative;
             width: 130px;
@@ -155,9 +155,7 @@
             transition: transform .3s;
         }
 
-        .kitty-imagen:hover {
-            transform: translateY(-7px) rotate(-2deg);
-        }
+        .kitty-imagen:hover { transform: translateY(-7px) rotate(-2deg); }
 
         .kitty-imagen .kitty-art {
             transform: scale(1.25);
@@ -167,13 +165,6 @@
         .kitty-imagen p {
             color: #a64d79;
             font-weight: 800;
-        }
-
-        .kitty-mini {
-            display: inline-block;
-            font-size: 25px;
-            vertical-align: middle;
-            margin: 0 5px;
         }
 
         .frases-bonitas {
@@ -272,7 +263,7 @@
             <a href="#historia">Mi mundo</a>
             <a href="#un-mundo">Hello Kitty 🎀</a>
             <a href="#palabras-bonitas">Palabras bonitas 💌</a>
-            <a href="#privado">Mi espacio 🔐</a>
+            <a href="#privado">Nuestros recuerdos ❤️</a>
         </nav>
     </header>
 
@@ -451,15 +442,22 @@
         <a href="#historia" class="boton volver-inicio">Volver 💗</a>
     </section>
 
-    <!-- ESPACIO PRIVADO -->
+    <!-- NUESTROS RECUERDOS -->
     <section class="acceso-privado" id="privado">
 
-        <span class="subtitulo">🔐 UN LUGAR ESPECIAL 🔐</span>
-        <h2>Mi espacio privado ❤️</h2>
+        <span class="subtitulo">🎀 NUESTROS RECUERDOS 🎀</span>
 
-        <p>Aquí hay un rinconcito especial que espera por ti.</p>
+        <h2>Nuestros recuerdos ❤️</h2>
 
-        <a href="{{ url_for('acceso') }}">Entrar a nuestro espacio 💗</a>
+        <p>
+            Tus fotos, mi amor... un álbum hermoso
+            lleno de momentos especiales para ti. 💗
+        </p>
+
+        <a href="{{ url_for('acceso') }}">
+            Ver nuestro álbum de fotos 📸💕
+        </a>
+
     </section>
 
     <footer>
