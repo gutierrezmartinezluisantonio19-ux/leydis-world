@@ -10,26 +10,132 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; }
 
-        body {
-            margin: 0;
-        }
-
-        #contenido {
-            display: none;
-        }
-
-        #intro {
-            display: flex;
-        }
+        #contenido { display: none; }
+        #intro { display: flex; }
 
         .seccion-especial {
             padding: 75px 20px;
             text-align: center;
             scroll-margin-top: 80px;
+        }
+
+        /* HELLO KITTY DIBUJADA */
+        .kitty-art {
+            position: relative;
+            width: 130px;
+            height: 115px;
+            margin: 25px auto;
+            display: inline-block;
+        }
+
+        .kitty-cara {
+            position: absolute;
+            width: 100px;
+            height: 78px;
+            background: white;
+            border: 3px solid #333;
+            border-radius: 48% 48% 45% 45%;
+            left: 12px;
+            top: 30px;
+            z-index: 2;
+        }
+
+        .kitty-oreja {
+            position: absolute;
+            width: 35px;
+            height: 38px;
+            background: white;
+            border: 3px solid #333;
+            top: 16px;
+            z-index: 1;
+        }
+
+        .kitty-oreja.izquierda {
+            left: 15px;
+            transform: rotate(-25deg);
+            border-radius: 5px 22px 5px 5px;
+        }
+
+        .kitty-oreja.derecha {
+            right: 15px;
+            transform: rotate(25deg);
+            border-radius: 22px 5px 5px 5px;
+        }
+
+        .kitty-ojo {
+            position: absolute;
+            width: 7px;
+            height: 11px;
+            background: #222;
+            border-radius: 50%;
+            top: 27px;
+        }
+
+        .kitty-ojo.izq { left: 25px; }
+        .kitty-ojo.der { right: 25px; }
+
+        .kitty-nariz {
+            position: absolute;
+            width: 9px;
+            height: 7px;
+            background: #ffcc35;
+            border: 1px solid #d49b00;
+            border-radius: 50%;
+            top: 42px;
+            left: 43px;
+        }
+
+        .kitty-bigote {
+            position: absolute;
+            width: 22px;
+            height: 2px;
+            background: #333;
+            top: 44px;
+        }
+
+        .kitty-bigote.b1 { left: -8px; transform: rotate(12deg); }
+        .kitty-bigote.b2 { left: -8px; top: 52px; transform: rotate(-8deg); }
+        .kitty-bigote.b3 { right: -8px; transform: rotate(-12deg); }
+        .kitty-bigote.b4 { right: -8px; top: 52px; transform: rotate(8deg); }
+
+        .kitty-mono {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background: #ed174c;
+            border: 2px solid #a80030;
+            border-radius: 50%;
+            top: 8px;
+            right: 3px;
+            z-index: 4;
+            transform: rotate(-15deg);
+        }
+
+        .kitty-mono::before,
+        .kitty-mono::after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 17px;
+            background: #ed174c;
+            border: 2px solid #a80030;
+            top: 0;
+            z-index: -1;
+        }
+
+        .kitty-mono::before {
+            right: 18px;
+            transform: rotate(-25deg);
+            border-radius: 80% 20% 80% 20%;
+        }
+
+        .kitty-mono::after {
+            left: 18px;
+            transform: rotate(25deg);
+            border-radius: 20% 80% 20% 80%;
         }
 
         .kitty-galeria {
@@ -44,15 +150,30 @@
             background: #fff0f6;
             border: 3px solid #ffc1d9;
             border-radius: 25px;
-            padding: 12px;
+            padding: 25px 12px;
             box-shadow: 0 5px 15px rgba(255, 105, 180, .12);
+            transition: transform .3s;
         }
 
-        .kitty-imagen img {
-            width: 100%;
-            height: 220px;
-            object-fit: contain;
-            border-radius: 18px;
+        .kitty-imagen:hover {
+            transform: translateY(-7px) rotate(-2deg);
+        }
+
+        .kitty-imagen .kitty-art {
+            transform: scale(1.25);
+            margin: 35px auto;
+        }
+
+        .kitty-imagen p {
+            color: #a64d79;
+            font-weight: 800;
+        }
+
+        .kitty-mini {
+            display: inline-block;
+            font-size: 25px;
+            vertical-align: middle;
+            margin: 0 5px;
         }
 
         .frases-bonitas {
@@ -82,13 +203,9 @@
             transition: transform .3s ease;
         }
 
-        .tarjeta-enlace:hover {
-            transform: translateY(-7px);
-        }
+        .tarjeta-enlace:hover { transform: translateY(-7px); }
 
-        .seccion-especial h2 span {
-            color: #ec75a5;
-        }
+        .seccion-especial h2 span { color: #ec75a5; }
 
         .volver-inicio {
             display: inline-block;
@@ -113,22 +230,12 @@
             font-weight: 800;
         }
 
-        .acceso-privado a:hover {
-            background: #d94d8b;
-        }
+        .acceso-privado a:hover { background: #d94d8b; }
 
         @media (max-width: 600px) {
-            .seccion-especial {
-                padding: 50px 15px;
-            }
-
-            .kitty-galeria {
-                grid-template-columns: 1fr;
-            }
-
-            .frases-bonitas {
-                grid-template-columns: 1fr;
-            }
+            .seccion-especial { padding: 50px 15px; }
+            .kitty-galeria { grid-template-columns: 1fr; }
+            .frases-bonitas { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -139,9 +246,7 @@
 <div id="intro">
     <div class="intro-content">
         <div class="intro-bow">🎀</div>
-
         <h1>LEYDI'S WORLD</h1>
-
         <p>Un universo rosita creado especialmente para ti, mi niña 💗</p>
 
         <button type="button"
@@ -173,49 +278,47 @@
 
     <!-- INICIO -->
     <section class="hero" id="inicio">
-
         <div class="decoracion">🎀</div>
         <div class="corazon">♡</div>
 
         <div class="hero-content">
-
-            <span class="etiqueta">
-                ♡ BIENVENIDA A TU PEQUEÑO UNIVERSO ♡
-            </span>
+            <span class="etiqueta">♡ BIENVENIDA A TU PEQUEÑO UNIVERSO ♡</span>
 
             <h1>
                 Bienvenida a<br>
                 <span>tu mundo, princesa</span>
             </h1>
 
-            <p class="bienvenida">
-                Este mundo fue creado para ti, mi princesa ❤️
-            </p>
+            <p class="bienvenida">Este mundo fue creado para ti, mi princesa ❤️</p>
 
-            <a href="#historia" class="boton">
-                Descubrir mi mundo ♡
-            </a>
-
+            <a href="#historia" class="boton">Descubrir mi mundo ♡</a>
         </div>
 
-        <div class="kitty">🐱🎀</div>
+        <div class="kitty-art">
+            <div class="kitty-oreja izquierda"></div>
+            <div class="kitty-oreja derecha"></div>
+            <div class="kitty-cara">
+                <div class="kitty-ojo izq"></div>
+                <div class="kitty-ojo der"></div>
+                <div class="kitty-nariz"></div>
+                <div class="kitty-bigote b1"></div>
+                <div class="kitty-bigote b2"></div>
+                <div class="kitty-bigote b3"></div>
+                <div class="kitty-bigote b4"></div>
+            </div>
+            <div class="kitty-mono"></div>
+        </div>
 
         <div class="flotante uno">💗</div>
         <div class="flotante dos">✨</div>
         <div class="flotante tres">🌸</div>
-
     </section>
 
     <!-- HISTORIA -->
     <section class="historia" id="historia">
+        <span class="subtitulo">🎀 UN LUGAR HECHO CON AMOR 🎀</span>
 
-        <span class="subtitulo">
-            🎀 UN LUGAR HECHO CON AMOR 🎀
-        </span>
-
-        <h2>
-            Porque tú eres especial <span>💕</span>
-        </h2>
+        <h2>Porque tú eres especial <span>💕</span></h2>
 
         <p>
             Hay personas que llegan a nuestras vidas y hacen que todo
@@ -229,19 +332,13 @@
             <a href="#un-mundo" class="tarjeta tarjeta-enlace">
                 <span>🎀</span>
                 <h3>Un mundo para ti</h3>
-                <p>
-                    Un rinconcito lleno de Hello Kitty,
-                    creado pensando en mi princesa.
-                </p>
+                <p>Un rinconcito lleno de Hello Kitty, creado pensando en mi princesa.</p>
             </a>
 
             <a href="#palabras-bonitas" class="tarjeta tarjeta-enlace">
                 <span>💌</span>
                 <h3>Palabras bonitas</h3>
-                <p>
-                    Un montón de mensajitos para recordarte
-                    cuánto te quiero.
-                </p>
+                <p>Un montón de mensajitos para recordarte cuánto te quiero.</p>
             </a>
 
         </div>
@@ -251,7 +348,6 @@
     <section class="seccion-especial" id="un-mundo">
 
         <span class="subtitulo">🎀 UN UNIVERSO ROSITA 🎀</span>
-
         <h2>Un mundo para <span>ti</span> 💗</h2>
 
         <p>
@@ -262,40 +358,70 @@
         <div class="kitty-galeria">
 
             <div class="kitty-imagen">
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hello_kitty.jpg"
-                    alt="Hello Kitty">
+                <div class="kitty-art">
+                    <div class="kitty-oreja izquierda"></div>
+                    <div class="kitty-oreja derecha"></div>
+                    <div class="kitty-cara">
+                        <div class="kitty-ojo izq"></div>
+                        <div class="kitty-ojo der"></div>
+                        <div class="kitty-nariz"></div>
+                        <div class="kitty-bigote b1"></div>
+                        <div class="kitty-bigote b2"></div>
+                        <div class="kitty-bigote b3"></div>
+                        <div class="kitty-bigote b4"></div>
+                    </div>
+                    <div class="kitty-mono"></div>
+                </div>
+                <p>Hello Kitty ❤️</p>
             </div>
 
             <div class="kitty-imagen">
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Elements_hello_kitty.jpg"
-                    alt="Hello Kitty">
+                <div class="kitty-art">
+                    <div class="kitty-oreja izquierda"></div>
+                    <div class="kitty-oreja derecha"></div>
+                    <div class="kitty-cara">
+                        <div class="kitty-ojo izq"></div>
+                        <div class="kitty-ojo der"></div>
+                        <div class="kitty-nariz"></div>
+                        <div class="kitty-bigote b1"></div>
+                        <div class="kitty-bigote b2"></div>
+                        <div class="kitty-bigote b3"></div>
+                        <div class="kitty-bigote b4"></div>
+                    </div>
+                    <div class="kitty-mono"></div>
+                </div>
+                <p>Un abrazo para ti 🎀</p>
             </div>
 
             <div class="kitty-imagen">
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hello_Kitty_%2817281266332%29.jpg"
-                    alt="Hello Kitty">
+                <div class="kitty-art">
+                    <div class="kitty-oreja izquierda"></div>
+                    <div class="kitty-oreja derecha"></div>
+                    <div class="kitty-cara">
+                        <div class="kitty-ojo izq"></div>
+                        <div class="kitty-ojo der"></div>
+                        <div class="kitty-nariz"></div>
+                        <div class="kitty-bigote b1"></div>
+                        <div class="kitty-bigote b2"></div>
+                        <div class="kitty-bigote b3"></div>
+                        <div class="kitty-bigote b4"></div>
+                    </div>
+                    <div class="kitty-mono"></div>
+                </div>
+                <p>Para mi princesa 💗</p>
             </div>
 
         </div>
 
         <p>Un poquito de ternura para la niña más especial. 🎀</p>
 
-        <a href="#historia" class="boton volver-inicio">
-            Volver 💗
-        </a>
-
+        <a href="#historia" class="boton volver-inicio">Volver 💗</a>
     </section>
 
     <!-- PALABRAS BONITAS -->
     <section class="seccion-especial" id="palabras-bonitas">
 
-        <span class="subtitulo">
-            💌 MENSAJITOS PARA MI PRINCESA 💌
-        </span>
-
+        <span class="subtitulo">💌 MENSAJITOS PARA MI PRINCESA 💌</span>
         <h2>Palabras <span>bonitas</span> ❤️</h2>
 
         <p>
@@ -304,7 +430,6 @@
         </p>
 
         <div class="frases-bonitas">
-
             <div class="frase">Eres mi casualidad más bonita. ❤️</div>
             <div class="frase">Aunque nos separen kilómetros, mi corazón siempre está contigo. 💗</div>
             <div class="frase">No necesito tenerte cerca para sentirte en mi corazón. 🥺</div>
@@ -321,30 +446,20 @@
             <div class="frase">Si estuviera contigo ahora mismo, te daría el abrazo más grande. ❤️</div>
             <div class="frase">Mi lugar favorito siempre será donde estés tú. 💗</div>
             <div class="frase">Gracias por existir y hacer más bonito mi mundo. 🥰</div>
-
         </div>
 
-        <a href="#historia" class="boton volver-inicio">
-            Volver 💗
-        </a>
-
+        <a href="#historia" class="boton volver-inicio">Volver 💗</a>
     </section>
 
     <!-- ESPACIO PRIVADO -->
     <section class="acceso-privado" id="privado">
 
         <span class="subtitulo">🔐 UN LUGAR ESPECIAL 🔐</span>
-
         <h2>Mi espacio privado ❤️</h2>
 
-        <p>
-            Aquí hay un rinconcito especial que espera por ti.
-        </p>
+        <p>Aquí hay un rinconcito especial que espera por ti.</p>
 
-        <a href="{{ url_for('acceso') }}">
-            Entrar a nuestro espacio 💗
-        </a>
-
+        <a href="{{ url_for('acceso') }}">Entrar a nuestro espacio 💗</a>
     </section>
 
     <footer>
